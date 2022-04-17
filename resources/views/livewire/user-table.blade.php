@@ -31,20 +31,18 @@
                         <tbody class="flex-1 sm:flex-none">
                             @forelse ($rows as $row)
                                 <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                                    <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $row->id }}</td>
-                                    <td class="border-grey-light border hover:bg-gray-100 p-3">
-                                        <button class="text-blue-500 hover:text-blue-100"
+                                    <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">{{ $row->id }}</td>
+                                    <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">
+                                        <button class="text-blue-500 hover:text-blue-500 hover:text-white"
                                             wire:click="editModal({{ $row->id }})">
                                             {{ $row->name }}
                                         </button>
                                     </td>
-                                    <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $row->email }}</td>
-                                    <td class="border-grey-light border hover:bg-gray-100 p-3">
+                                    <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">{{ $row->email }}</td>
+                                    <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">
                                         @foreach ($row->roles as $role)
                                             {{ $role->name }},
                                         @endforeach
-
-
                                     </td>
                                 </tr>
                             @empty
@@ -64,4 +62,59 @@
                 </div>
             </div>
         </div>
+
+        <x-jet-dialog-modal wire:model.defer="showEditModal">
+            <x-slot name="title">
+                {{ __('Edit User') }}
+            </x-slot>
+
+            <x-slot name="content">
+                <div class="col-span-6 sm:col-span-4 mb-5">
+                    <x-jet-label for="name" value="{{ __('User Name') }}" />
+                    <x-jet-input id="name" type="text" class="mt-1 block w-full" autofocus  wire:model="editing.name"
+                        placeholder="User Name" />
+                    <x-jet-input-error for="editing.name" class="mt-2" />
+                </div>
+
+                <div class="col-span-6 sm:col-span-4 mb-5">
+                    <x-jet-label for="name" value="{{ __('User email') }}" />
+                    <x-jet-input id="email" type="email" class="mt-1 block w-full" autofocus  wire:model="editing.email"
+                        placeholder="User E-Mail" />
+                    <x-jet-input-error for="editing.email" class="mt-2" />
+                </div>
+
+                <div class="col-span-6 sm:col-span-4 mb-5">
+                    <x-jet-label for="name" value="{{ __('User Password') }}" />
+                    <x-jet-input id="password" type="password" class="mt-1 block w-full" autofocus  wire:model.defer="editing.password"
+                        placeholder="User Password" />
+                    <x-jet-input-error for="editing.password" class="mt-2" />
+                </div>
+
+                <div class="col-span-6 sm:col-span-4 mb-5">
+                    <x-jet-label for="role" value="{{ __('Roles') }}" />
+                    <select name="settlements" class="mt-1 block w-full" wire:model="rol" >
+                        @foreach ($roles as $row)
+                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                        @endforeach
+                    </select>
+                    <x-jet-input-error for="editing.settlement_id" class="mt-2" />
+                </div>
+            </x-slot>
+            <x-slot name="footer">
+                @if ($create === true)
+                    <x-jet-button class="ml-4" wire:click="save">
+                        {{ __('Crear') }}
+                    </x-jet-button>
+                @else
+                    <x-jet-button class="ml-4" wire:click="save">
+                        {{ __('Edit') }}
+                    </x-jet-button>
+                @endif
+
+
+                <x-jet-secondary-button wire:click="closeModal">
+                    {{ __('Close') }}
+                </x-jet-secondary-button>
+            </x-slot>
+        </x-jet-dialog-modal>
 </section>

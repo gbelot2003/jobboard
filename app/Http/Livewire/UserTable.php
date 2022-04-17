@@ -5,12 +5,14 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Spatie\Permission\Models\Role;
 
 class UserTable extends Component
 {
     use WithPagination;
 
     public $showEditModal = false;
+    public $create = false;
     public $search;
     public User $editing;
     public $password;
@@ -30,13 +32,72 @@ class UserTable extends Component
         'editing.name' => 'required',
         'editing.email' => 'required|email',
         'editing.password' => 'string',
-        'editing.company_id' => 'required',
-        'editing.settlement_id' => 'required',
-        'editing.status' => 'required',
         'rol' => 'required',
     ];
 
+    /**
+     * Create a new record
+     *
+     * @return void
+     */
+    public function create()
+    {
+        $this->showEditModal = true;
+        $this->create = true;
+        $this->editing = User::make();
+        $this->editing->assignRole('User');
+    }
 
+    /**
+     * Edit a record
+     *
+     * @param sect $section
+     * @return void
+     */
+    public function editModal(User $user)
+    {
+        $this->showEditModal = true;
+        $this->editing = $user;
+        $this->password = $user->password;
+        $this->rol = $this->editing->roles[0]->id;
+    }
+
+    /**
+     * Close modal
+     *
+     * @return void
+     */
+    public function closeModal()
+    {
+        $this->resetErrorBag();
+        $this->resetValidation();
+        $this->create = false;
+        $this->showEditModal = false;
+    }
+
+        /**
+     * Save record
+     *
+     * @return void
+     */
+    public function save()
+    {
+        $this->validate();
+        if ($this->editing->password === null){
+            $this->editing->password = $this->password;
+        } else {
+            $this->editing->password = bcrypt($this->editing->password);
+        }
+
+        $this->editing->save();
+        $this->editing->roles()->sync($this->rol);
+        if($this->create === true) {
+            /**
+             * Eventos si se crea un nuevo usuario
+             */
+        }
+        $this->closeModal();
+    }
 
     public function render()
     {
@@ -56,6 +117,9 @@ class UserTable extends Component
         ->with('roles')
         ->paginate(10);
 
-        return view('livewire.user-table', compact('rows'));
+        $roles = Role::all();
+
+
+        return view('livewire.user-table', compact('rows', 'roles'));
     }
 }
