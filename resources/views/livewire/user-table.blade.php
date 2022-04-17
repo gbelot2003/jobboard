@@ -4,7 +4,7 @@
             <div class="flex flex-col md:flex-row bg-white rounded-full" x-data="{ search: '' }">
                 <div class="xl:w-5/6 sm:w-full my-2">
                     <input type="search" class="w-full h-9 text-gray-900 rounded-full focus:outline-none"
-                        placeholder="Buscar" x-model="search" wire:model="search">
+                        placeholder="Buscar" x-model="search" wire:model.debounce.500ms="search">
                 </div>
                 <div class="xl:w-1/6 sm:w-full my-2 xl:pl-2">
                     <button class="w-full h-9 bg-blue-800  text-white rounded-full hover:bg-indigo-900"
@@ -18,12 +18,14 @@
                     <table
                         class="w-full flex flex-row flex-noa-wrp sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
                         <thead class="text-gray-800">
-                            <tr
-                                class="bg-gray-300 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                <th class="p-3 text-left">{{ __('Id') }}</th>
-                                <th class="p-3 text-left">{{ __('Nombre') }}</th>
-                                <th class="p-3 text-left">{{ __('Email') }}</th>
-                            </tr>
+                            @foreach ($rows as $row)
+                                <tr
+                                    class="bg-gray-300 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <th class="p-3 text-left">{{ __('Id') }}</th>
+                                    <th class="p-3 text-left">{{ __('Nombre') }}</th>
+                                    <th class="p-3 text-left">{{ __('Email') }}</th>
+                                </tr>
+                            @endforeach
                         </thead>
                         <tbody class="flex-1 sm:flex-none">
                             @forelse ($rows as $row)
@@ -48,33 +50,10 @@
                             @endforelse
                         </tbody>
                     </table>
+                    <div class="mt-5 pl-3 pr-3 pb-2 rounded-lg shadow-lg">
+                        {{ $rows->links() }}
+                    </div>
                 </div>
             </div>
         </div>
-
-        <style>
-            @media (min-width: 640px) {
-                table {
-                    display: inline-table !important;
-                }
-
-                thead tr:not(:first-child) {
-                    display: none;
-                }
-            }
-
-            td:not(:last-child) {
-                border-bottom: 0;
-            }
-
-            th:not(:last-child) {
-                border-bottom: 2px solid rgba(0, 0, 0, .1);
-            }
-
-        </style>
-
-
-
-
-
 </section>
