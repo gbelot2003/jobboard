@@ -31,7 +31,7 @@ class UserTable extends Component
     protected $rules = [
         'editing.name' => 'required',
         'editing.email' => 'required|email',
-        'editing.password' => 'string',
+        'editing.password' => 'nullable|string',
         'rol' => 'required',
     ];
 
@@ -71,8 +71,8 @@ class UserTable extends Component
     {
         $this->resetErrorBag();
         $this->resetValidation();
-        $this->create = false;
         $this->showEditModal = false;
+        $this->create = false;
     }
 
         /**

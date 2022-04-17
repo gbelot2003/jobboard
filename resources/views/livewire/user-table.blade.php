@@ -107,13 +107,12 @@
                     </x-jet-button>
                 @else
                     <x-jet-button class="ml-4" wire:click="save">
-                        {{ __('Edit') }}
+                        {{ __('Editar') }}
                     </x-jet-button>
                 @endif
 
-
                 <x-jet-secondary-button wire:click="closeModal">
-                    {{ __('Close') }}
+                    {{ __('Cerrar') }}
                 </x-jet-secondary-button>
             </x-slot>
         </x-jet-dialog-modal>
