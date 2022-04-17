@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -14,16 +15,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('users')->delete();
-        
+
         \DB::table('users')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 21,
-                'name' => 'Miss Assunta Dicki Sr.',
-                'email' => 'princess.hermiston@example.com',
+                'name' => 'Gerardo A Belot',
+                'email' => 'gbelot2003@hotmail.com',
                 'email_verified_at' => '2022-04-17 21:15:16',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'two_factor_secret' => NULL,
@@ -35,7 +36,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 22,
                 'name' => 'Ms. Jacquelyn Veum',
@@ -51,7 +52,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 23,
                 'name' => 'Mrs. Catharine Anderson',
@@ -67,7 +68,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 24,
                 'name' => 'Dr. Maximo Miller MD',
@@ -83,7 +84,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 25,
                 'name' => 'Mr. Rodrick Welch',
@@ -99,7 +100,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 26,
                 'name' => 'Devin Howe',
@@ -115,7 +116,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 27,
                 'name' => 'Eula Howe',
@@ -131,7 +132,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 28,
                 'name' => 'Beau Murazik',
@@ -147,7 +148,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 29,
                 'name' => 'Maynard Lubowitz IV',
@@ -163,7 +164,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 30,
                 'name' => 'Prof. Arvilla Schumm DDS',
@@ -179,7 +180,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:16',
                 'updated_at' => '2022-04-17 21:15:16',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 31,
                 'name' => 'Wilhelm Lesch',
@@ -195,7 +196,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 32,
                 'name' => 'Dr. Lesly Wolf II',
@@ -211,7 +212,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 33,
                 'name' => 'Connie Ryan',
@@ -227,7 +228,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 34,
                 'name' => 'Naomie Altenwerth',
@@ -243,7 +244,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 35,
                 'name' => 'Simeon Luettgen',
@@ -259,7 +260,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 36,
                 'name' => 'Jessyca Schimmel DDS',
@@ -275,7 +276,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 37,
                 'name' => 'Carlee Thompson',
@@ -291,7 +292,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 38,
                 'name' => 'Eugene Auer',
@@ -307,7 +308,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 39,
                 'name' => 'Effie Robel MD',
@@ -323,7 +324,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 40,
                 'name' => 'Verdie Block I',
@@ -339,7 +340,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 41,
                 'name' => 'Antonette Stoltenberg',
@@ -355,7 +356,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 42,
                 'name' => 'Lupe Lehner',
@@ -371,7 +372,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 43,
                 'name' => 'Junior Kub DVM',
@@ -387,7 +388,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 44,
                 'name' => 'Arnulfo Quigley',
@@ -403,7 +404,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            24 => 
+            24 =>
             array (
                 'id' => 45,
                 'name' => 'Candida Fritsch',
@@ -419,7 +420,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            25 => 
+            25 =>
             array (
                 'id' => 46,
                 'name' => 'Dr. Constantin Carter DVM',
@@ -435,7 +436,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            26 => 
+            26 =>
             array (
                 'id' => 47,
                 'name' => 'Heath Crooks',
@@ -451,7 +452,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            27 => 
+            27 =>
             array (
                 'id' => 48,
                 'name' => 'Prof. Derek Friesen',
@@ -467,7 +468,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            28 => 
+            28 =>
             array (
                 'id' => 49,
                 'name' => 'Sylvester Durgan',
@@ -483,7 +484,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            29 => 
+            29 =>
             array (
                 'id' => 50,
                 'name' => 'Olaf Bosco',
@@ -499,7 +500,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            30 => 
+            30 =>
             array (
                 'id' => 51,
                 'name' => 'Keaton Eichmann',
@@ -515,7 +516,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            31 => 
+            31 =>
             array (
                 'id' => 52,
                 'name' => 'Sophie Nikolaus',
@@ -531,7 +532,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            32 => 
+            32 =>
             array (
                 'id' => 53,
                 'name' => 'Brice Shields',
@@ -547,7 +548,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            33 => 
+            33 =>
             array (
                 'id' => 54,
                 'name' => 'Marley Senger',
@@ -563,7 +564,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            34 => 
+            34 =>
             array (
                 'id' => 55,
                 'name' => 'Jaclyn Casper',
@@ -579,7 +580,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            35 => 
+            35 =>
             array (
                 'id' => 56,
                 'name' => 'Claire Steuber',
@@ -595,7 +596,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            36 => 
+            36 =>
             array (
                 'id' => 57,
                 'name' => 'Johanna Trantow MD',
@@ -611,7 +612,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            37 => 
+            37 =>
             array (
                 'id' => 58,
                 'name' => 'Donavon DuBuque',
@@ -627,7 +628,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            38 => 
+            38 =>
             array (
                 'id' => 59,
                 'name' => 'Name Konopelski IV',
@@ -643,7 +644,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            39 => 
+            39 =>
             array (
                 'id' => 60,
                 'name' => 'Aubree Hill',
@@ -659,7 +660,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            40 => 
+            40 =>
             array (
                 'id' => 61,
                 'name' => 'Clovis Huel',
@@ -675,7 +676,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            41 => 
+            41 =>
             array (
                 'id' => 62,
                 'name' => 'Stephania McClure',
@@ -691,7 +692,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            42 => 
+            42 =>
             array (
                 'id' => 63,
                 'name' => 'Columbus Leannon',
@@ -707,7 +708,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            43 => 
+            43 =>
             array (
                 'id' => 64,
                 'name' => 'Quincy Cummings',
@@ -723,7 +724,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            44 => 
+            44 =>
             array (
                 'id' => 65,
                 'name' => 'Miss Verna Bode DDS',
@@ -739,7 +740,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            45 => 
+            45 =>
             array (
                 'id' => 66,
                 'name' => 'Ethel Heller II',
@@ -755,7 +756,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            46 => 
+            46 =>
             array (
                 'id' => 67,
                 'name' => 'Karen Howell',
@@ -771,7 +772,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            47 => 
+            47 =>
             array (
                 'id' => 68,
                 'name' => 'Michele Nolan',
@@ -787,7 +788,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            48 => 
+            48 =>
             array (
                 'id' => 69,
                 'name' => 'Mr. Myrl Berge MD',
@@ -803,7 +804,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2022-04-17 21:15:17',
                 'updated_at' => '2022-04-17 21:15:17',
             ),
-            49 => 
+            49 =>
             array (
                 'id' => 70,
                 'name' => 'Winifred Bins',
@@ -820,7 +821,15 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => '2022-04-17 21:15:17',
             ),
         ));
-        
-        
+
+        $super = User::findOrFail(21);
+
+        $super->assignRole('Super Admin');
+
+        /*** Permissions */
+        $users = User::all();
+        foreach($users as $user){
+            $user->assignRole('User');
+        }
     }
 }
