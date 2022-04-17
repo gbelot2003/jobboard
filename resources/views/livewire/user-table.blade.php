@@ -24,6 +24,7 @@
                                     <th class="p-3 text-left">{{ __('Id') }}</th>
                                     <th class="p-3 text-left">{{ __('Nombre') }}</th>
                                     <th class="p-3 text-left">{{ __('Email') }}</th>
+                                    <th class="p-3 text-left">{{ __('Roles') }}</th>
                                 </tr>
                             @endforeach
                         </thead>
@@ -38,6 +39,13 @@
                                         </button>
                                     </td>
                                     <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $row->email }}</td>
+                                    <td class="border-grey-light border hover:bg-gray-100 p-3">
+                                        @foreach ($row->roles as $role)
+                                            {{ $role->name }},
+                                        @endforeach
+
+
+                                    </td>
                                 </tr>
                             @empty
                                 <tr class="text-gray-700">

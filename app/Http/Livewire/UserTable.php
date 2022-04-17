@@ -43,16 +43,17 @@ class UserTable extends Component
         $rows = User::orderBy('id', 'DESC')
         ->where('name', 'like', '%' . $this->search . '%')
         ->orWhere('email', 'like', '%' . $this->search . '%')
-        /**->orWherehas('roles', function($q) {
+        ->orWherehas('roles', function($q) {
             $q->where('name', 'like', '%' . $this->search . '%');
         })
+        /**
         ->orWherehas('company', function($q) {
             $q->where('name', 'like', '%' . $this->search . '%');
         })
         ->orWherehas('settlement', function($q) {
             $q->where('name', 'like', '%' . $this->search . '%');
-        })*/
-        //->with('roles')
+        }) */
+        ->with('roles')
         ->paginate(10);
 
         return view('livewire.user-table', compact('rows'));
