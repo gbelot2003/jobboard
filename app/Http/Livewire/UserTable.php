@@ -108,13 +108,6 @@ class UserTable extends Component
         ->orWherehas('roles', function($q) {
             $q->where('name', 'like', '%' . $this->search . '%');
         })
-        /**
-        ->orWherehas('company', function($q) {
-            $q->where('name', 'like', '%' . $this->search . '%');
-        })
-        ->orWherehas('settlement', function($q) {
-            $q->where('name', 'like', '%' . $this->search . '%');
-        }) */
         ->with('roles')
         ->paginate(10);
 
