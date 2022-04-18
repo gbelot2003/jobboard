@@ -6,12 +6,16 @@
                     <input type="search" class="w-full h-9 text-gray-900 rounded-full focus:outline-none"
                         placeholder="Buscar" x-model="search" wire:model.debounce.500ms="search">
                 </div>
+                @can('user_create')
                 <div class="xl:w-1/6 sm:w-full my-2 xl:pl-2">
                     <button class="w-full h-9 bg-blue-800  text-white rounded-full hover:bg-indigo-900"
                         wire:click="create">
                         <i class="fas fa-plus-circle"></i> {{ __('Nuevo Usuario') }}
                     </button>
                 </div>
+                @endcan
+
+
             </div>
             <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
                 <div class="w-full overflow-x-auto">
@@ -34,15 +38,19 @@
                                 <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
                                     <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">{{ $row->id }}</td>
                                     <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">
-                                        <button class="text-blue-500 hover:text-blue-500 hover:text-white"
-                                            wire:click="editModal({{ $row->id }})">
+                                        @can('user_edit')
+                                            <button class="text-blue-500 hover:text-blue-500 hover:text-white"
+                                                wire:click="editModal({{ $row->id }})">
+                                                {{ $row->name }}
+                                            </button>
+                                        @else
                                             {{ $row->name }}
-                                        </button>
+                                        @endcan
                                     </td>
                                     <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">{{ $row->email }}</td>
                                     <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">
-                                        @foreach ($row->roles as $role)
-                                            {{ $role->name }},
+                                        @foreach ($row->roles as $key => $role)
+                                            <span>{{ $role->name }}</span>
                                         @endforeach
                                     </td>
                                     <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">
