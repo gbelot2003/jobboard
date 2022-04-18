@@ -32,6 +32,7 @@ class UserTable extends Component
         'editing.name' => 'required',
         'editing.email' => 'required|email',
         'editing.password' => 'nullable|string',
+        'editing.state' => 'required',
         'rol' => 'required',
     ];
 
@@ -119,7 +120,10 @@ class UserTable extends Component
 
         $roles = Role::all();
 
-
-        return view('livewire.user-table', compact('rows', 'roles'));
+        $states = [
+            ['value' => false, 'state' => "false"],
+            ['value' => true, 'state' => "True"]
+        ];
+        return view('livewire.user-table', compact('rows', 'roles', 'states'));
     }
 }

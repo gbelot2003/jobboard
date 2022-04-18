@@ -25,6 +25,7 @@
                                     <th class="p-3 text-left">{{ __('Nombre') }}</th>
                                     <th class="p-3 text-left">{{ __('Email') }}</th>
                                     <th class="p-3 text-left">{{ __('Roles') }}</th>
+                                    <th class="p-3 text-left">{{ __('State') }}</th>
                                 </tr>
                             @endforeach
                         </thead>
@@ -43,6 +44,13 @@
                                         @foreach ($row->roles as $role)
                                             {{ $role->name }},
                                         @endforeach
+                                    </td>
+                                    <td class="border-grey-light border hover:bg-gray-500 hover:text-white p-3">
+                                       @if($row->state === true)
+                                        Activo
+                                       @else
+                                        Inactivo
+                                       @endif
                                     </td>
                                 </tr>
                             @empty
@@ -99,6 +107,17 @@
                     </select>
                     <x-jet-input-error for="editing.settlement_id" class="mt-2" />
                 </div>
+
+                <div class="col-span-6 sm:col-span-4 mb-5">
+                    <x-jet-label for="state" value="{{ __('Estado') }}" />
+                    <select name="states" class="mt-1 block w-full" wire:model="editing.state" >
+                        @foreach ($states as $row)
+                            <option value="{{ $row['value'] }}">{{ $row['state'] }}</option>
+                        @endforeach
+                    </select>
+                    <x-jet-input-error for="editing.state" class="mt-2" />
+                </div>
+
             </x-slot>
             <x-slot name="footer">
                 @if ($create === true)
